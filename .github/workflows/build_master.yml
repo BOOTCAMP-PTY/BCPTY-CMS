@@ -1,0 +1,66 @@
+name: build, test and publish:master
+
+
+on:
+  workflow_call:
+      secrets:
+            SNYK_TOKEN:
+                required: true
+ 
+  push:
+    branches:
+      - 'master'
+
+jobs:
+  build:
+    name: Build and Test
+    runs-on: ubuntu-latest
+    permissions: 
+      contents: read
+      packages: write 
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Use Node 16.x
+        uses: actions/setup-node@v2
+        with:
+          node-version: '16.x'
+          registry-url: 'https://registry.npmjs.org'
+          scope: '@jmjhox'
+      - name: "Check package-lock.json existence"
+        uses: andstor/file-existence-action@v1
+        with:
+          files: "package-lock.json"
+      - name: removing npm.lock
+        if: steps.check_files.outputs.files_exists == 'true'
+        run: rm package-lock.json
+      - name: Install dependencies
+        run: yarn install
+      - name: Build
+        run: yarn run build
+      - name: Publish
+        uses: netlify/actions/build@master
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID_CMS }}
+          run: netlify deploy --prod
+        
+  security:
+    runs-on: ubuntu-latest
+    env:
+      SNYK_TOKEN: ${{secrets.SNYK_TOKEN}}
+    steps:
+      - uses: actions/checkout@master
+      - name: Use Node 16.x
+        uses: actions/setup-node@v2
+        with:
+          node-version: '16.x'
+      - name: Install dependencies
+        run: yarn install
+      - name: Run Snyk to check for vulnerabilities
+        uses: snyk/actions/node@master
+ 
+        with:
+          command: monitor
+        
