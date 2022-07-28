@@ -1,4 +1,5 @@
 'use strict';
+const graphql = require('./graphql')
 
 module.exports = {
   /**
@@ -7,8 +8,10 @@ module.exports = {
    *
    * This gives you an opportunity to extend code.
    */
-  register(/*{ strapi }*/) {},
-
+   register({ strapi }) {
+    graphql(strapi) // externalize all graphql related code to ./src/graphql.js
+  },
+  
   /**
    * An asynchronous bootstrap function that runs before
    * your application gets started.
