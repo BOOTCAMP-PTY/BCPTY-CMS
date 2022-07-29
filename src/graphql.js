@@ -2,9 +2,7 @@
 
 /**Section to add new GraphQL Schemas*/
 
-const popularity = require("./api/popularity/graphql");
-const usuario = require("./api/usuario/controllers/extended/usuarioSchema");
-const extensions = [popularity,usuario];
+const extensions = [];
 
 module.exports = (strapi) => {
   const extensionService = strapi.plugin("graphql").service("extension");
