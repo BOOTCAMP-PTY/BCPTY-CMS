@@ -24,21 +24,16 @@
       },
       "type": "string"
     },
-    "profile_user": {
-      "type": "relation",
-      "relation": "oneToOne",
-      "target": "plugin::users-permissions.user",
-      "inversedBy": "profile"
-    },
     "image": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
       "allowedTypes": [
         "images",
         "files",
         "videos",
         "audios"
       ],
-      "type": "media",
-      "multiple": false,
       "pluginOptions": {
         "i18n": {
           "localized": false
@@ -60,6 +55,18 @@
         }
       },
       "type": "string"
+    },
+    "course_author": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::course-master.course-master",
+      "inversedBy": "creator"
+    },
+    "userId": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "plugin::users-permissions.user",
+      "inversedBy": "profile"
     }
   }
 }

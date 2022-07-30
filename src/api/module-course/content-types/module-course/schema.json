@@ -1,0 +1,57 @@
+{
+  "kind": "collectionType",
+  "collectionName": "module_courses",
+  "info": {
+    "singularName": "module-course",
+    "pluralName": "module-courses",
+    "displayName": "ModuleCourse",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "courses": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::course.course",
+      "mappedBy": "module_course"
+    },
+    "course_author": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::course-master.course-master",
+      "inversedBy": "module_courses"
+    },
+    "author": {
+      "type": "string"
+    },
+    "title": {
+      "type": "string"
+    },
+    "description_title": {
+      "type": "text"
+    },
+    "description_subtitle": {
+      "type": "string"
+    },
+    "description_module": {
+      "type": "text"
+    },
+    "time_duration": {
+      "type": "string"
+    },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    }
+  }
+}
