@@ -25,12 +25,12 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: '16.x'
-      - name: install packages with yarn
-        run: yarn install
+      - name: install packages with npm
+        run: npm install
       - name: Build
-        run: yarn run build
+        run: npm run build
       - name: lint
-        run: yarn run eslint
+        run: npm run eslint
 
   security:
     runs-on: ubuntu-latest
