@@ -7,28 +7,83 @@
     "develop": "strapi develop",
     "start": "strapi start",
     "build": "strapi build",
-    "strapi": "strapi"
+    "strapi": "strapi",
+    "test": "jest --forceExit --detectOpenHandles",
+    "coverage": "jest --coverage --forceExit --detectOpenHandles",
+    "eslint-fix": "eslint . --fix",
+    "eslint": "eslint .",
+    "lint": "prettier --check .",
+    "format": "prettier --write ."
   },
-  "devDependencies": {},
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*": [
+      "eslint --fix",
+      "prettier --write",
+      "git add"
+    ]
+  },
+  "jest": {
+    "testPathIgnorePatterns": [
+      "/node_modules/",
+      ".tmp",
+      ".cache"
+    ],
+    "testEnvironment": "node",
+    "collectCoverage": false,
+    "collectCoverageFrom": [
+      "api/**/*.js",
+      "config/functions/**/*.js",
+      "config/policies/**/*.js",
+      "extensions/**/*.js"
+    ],
+    "coverageThreshold": {
+      "global": {
+        "branches": 70,
+        "functions": 70,
+        "lines": 70,
+        "statements": 70
+      }
+    },
+    "devDependencies": {
+      "babel-eslint": "^10.1.0",
+      "eslint": "^8.21.0",
+      "eslint-config-google": "^0.14.0",
+      "prettier": "^2.7.1"
+    },
+    "dependencies": {
+      "@strapi/plugin-graphql": "4.2.3",
+      "@strapi/plugin-i18n": "4.2.3",
+      "@strapi/plugin-users-permissions": "4.2.3",
+      "@strapi/strapi": "4.2.3",
+      "@strapi/utils": "^4.2.3",
+      "better-sqlite3": "7.4.6",
+      "pg": "^8.7.3",
+      "strapi-plugin-entity-relationship-chart": "^4.1.0"
+    },
+    "author": {
+      "name": "A Strapi developer"
+    },
+    "strapi": {
+      "uuid": "a62750e3-10a8-4775-9def-988e4041e236"
+    },
+    "engines": {
+      "node": ">=12.x.x <=16.x.x",
+      "npm": ">=6.0.0"
+    },
+    "license": "MIT"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.18.10",
+    "@babel/eslint-parser": "^7.18.9",
+    "husky": "^8.0.1"
+  },
   "dependencies": {
-    "@strapi/plugin-graphql": "4.2.3",
-    "@strapi/plugin-i18n": "4.2.3",
-    "@strapi/plugin-users-permissions": "4.2.3",
-    "@strapi/strapi": "4.2.3",
-    "@strapi/utils": "^4.2.3",
-    "better-sqlite3": "7.4.6",
-    "pg": "^8.7.3",
-    "strapi-plugin-entity-relationship-chart": "^4.1.0"
-  },
-  "author": {
-    "name": "A Strapi developer"
-  },
-  "strapi": {
-    "uuid": "a62750e3-10a8-4775-9def-988e4041e236"
-  },
-  "engines": {
-    "node": ">=12.x.x <=16.x.x",
-    "npm": ">=6.0.0"
-  },
-  "license": "MIT"
+    "eslint": "^8.21.0",
+    "eslint-config-google": "^0.14.0"
+  }
 }
