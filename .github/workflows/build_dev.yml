@@ -26,7 +26,7 @@ jobs:
         with:
           node-version: '16.x'
       - name: install strapi
-        run: npm install  strapi
+        run: yarn add strapi
       - name: install packages with yarn
         run: yarn install
       - name: Build
