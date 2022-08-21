@@ -28,7 +28,9 @@ jobs:
       - name: install packages with yarn
         run: yarn install
       - name: Build
-        run: yarn run build
+        run: yarn run build0
+      - name: Build
+        run: yarn run lint
 
   security:
     runs-on: ubuntu-latest
