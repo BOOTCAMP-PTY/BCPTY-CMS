@@ -12,7 +12,7 @@
     "coverage": "jest --coverage --forceExit --detectOpenHandles",
     "eslint-fix": "eslint . --fix",
     "eslint": "eslint .",
-    "lint": "prettier --check .",
+    "lint": "prettier  --check . ",
     "format": "prettier --write ."
   },
   "husky": {
