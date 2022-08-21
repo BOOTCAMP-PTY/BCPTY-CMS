@@ -4,10 +4,11 @@
   "info": {
     "singularName": "module-course-finisher",
     "pluralName": "module-course-finishers",
-    "displayName": "ModuleCourseFinisher"
+    "displayName": "ModuleCourseFinisher",
+    "description": ""
   },
   "options": {
-    "draftAndPublish": true
+    "draftAndPublish": false
   },
   "pluginOptions": {},
   "attributes": {
