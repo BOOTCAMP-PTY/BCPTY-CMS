@@ -52,6 +52,15 @@
         "videos",
         "audios"
       ]
+    },
+    "course_level": {
+      "type": "enumeration",
+      "enum": [
+        "Principiante",
+        "Intermedio",
+        "Avanzado"
+      ],
+      "required": true
     }
   }
 }
