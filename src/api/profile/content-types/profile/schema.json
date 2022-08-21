@@ -51,17 +51,17 @@
       },
       "type": "string"
     },
-    "course_author": {
-      "type": "relation",
-      "relation": "oneToOne",
-      "target": "api::course-master.course-master",
-      "inversedBy": "creator"
-    },
     "userId": {
       "type": "relation",
       "relation": "oneToOne",
       "target": "plugin::users-permissions.user",
       "inversedBy": "profile"
+    },
+    "module_enrolled": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::course-module-subscriber.course-module-subscriber",
+      "mappedBy": "user_profile"
     }
   }
 }

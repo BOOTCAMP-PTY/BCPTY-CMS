@@ -1,0 +1,31 @@
+{
+  "kind": "collectionType",
+  "collectionName": "course_module_progresses",
+  "info": {
+    "singularName": "course-module-progress",
+    "pluralName": "course-module-progresses",
+    "displayName": "CourseModuleProgress",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "module_id": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::course-module-subscriber.course-module-subscriber",
+      "mappedBy": "module_progress"
+    },
+    "status": {
+      "type": "boolean"
+    },
+    "percent": {
+      "type": "integer"
+    }
+  }
+}

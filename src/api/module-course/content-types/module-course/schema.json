@@ -18,12 +18,6 @@
       "target": "api::course.course",
       "mappedBy": "module_course"
     },
-    "course_author": {
-      "type": "relation",
-      "relation": "manyToOne",
-      "target": "api::course-master.course-master",
-      "inversedBy": "module_courses"
-    },
     "author": {
       "type": "string"
     },
@@ -52,6 +46,13 @@
       "type": "enumeration",
       "enum": ["Principiante", "Intermedio", "Avanzado"],
       "required": true
+    },
+    "keywords": {
+      "type": "json"
+    },
+    "duration_type": {
+      "type": "enumeration",
+      "enum": ["minutos", "horas", "días", "semanas", "meses", "años"]
     }
   }
 }

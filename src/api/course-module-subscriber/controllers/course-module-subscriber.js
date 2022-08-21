@@ -1,11 +1,11 @@
 'use strict';
 
 /**
- *  course-master controller
+ *  course-module-subscriber controller
  */
 
 const { createCoreController } = require('@strapi/strapi').factories;
 
 module.exports = createCoreController(
-  'api::course-master.course-master'
+  'api::course-module-subscriber.course-module-subscriber'
 );
