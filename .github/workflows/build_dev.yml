@@ -1,14 +1,13 @@
 name: build and test:development
 
-
 on:
   workflow_call:
-      secrets:
-            SNYK_TOKEN:
-                required: true
- 
+    secrets:
+      SNYK_TOKEN:
+        required: true
+
   pull_request:
-    branches: 
+    branches:
       - 'development'
   push:
     branches:
@@ -46,7 +45,6 @@ jobs:
         run: yarn install
       - name: Run Snyk to check for vulnerabilities
         uses: snyk/actions/node@master
- 
+
         with:
           command: monitor
-        

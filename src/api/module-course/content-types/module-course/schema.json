@@ -46,20 +46,11 @@
       "type": "media",
       "multiple": false,
       "required": false,
-      "allowedTypes": [
-        "images",
-        "files",
-        "videos",
-        "audios"
-      ]
+      "allowedTypes": ["images", "files", "videos", "audios"]
     },
     "course_level": {
       "type": "enumeration",
-      "enum": [
-        "Principiante",
-        "Intermedio",
-        "Avanzado"
-      ],
+      "enum": ["Principiante", "Intermedio", "Avanzado"],
       "required": true
     }
   }
