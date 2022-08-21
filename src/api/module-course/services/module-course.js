@@ -6,4 +6,6 @@
 
 const { createCoreService } = require('@strapi/strapi').factories;
 
-module.exports = createCoreService('api::module-course.module-course');
+module.exports = createCoreService(
+  'api::module-course.module-course'
+);

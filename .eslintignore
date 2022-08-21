@@ -1,3 +1,14 @@
 .cache
 build
 **/node_modules/**
+coverage
+public
+database
+config
+.github
+.editorconfig
+.env
+.env.example
+docker-compose.yml
+yarn.lock
+.strapi-updater.json
