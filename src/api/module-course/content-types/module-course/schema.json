@@ -40,11 +40,20 @@
       "type": "media",
       "multiple": false,
       "required": false,
-      "allowedTypes": ["images", "files", "videos", "audios"]
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
     },
     "course_level": {
       "type": "enumeration",
-      "enum": ["Principiante", "Intermedio", "Avanzado"],
+      "enum": [
+        "Principiante",
+        "Intermedio",
+        "Avanzado"
+      ],
       "required": true
     },
     "keywords": {
@@ -52,7 +61,20 @@
     },
     "duration_type": {
       "type": "enumeration",
-      "enum": ["minutos", "horas", "días", "semanas", "meses", "años"]
+      "enum": [
+        "minutos",
+        "horas",
+        "días",
+        "semanas",
+        "meses",
+        "años"
+      ]
+    },
+    "course_module_id": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::course-module-subscriber.course-module-subscriber",
+      "mappedBy": "module_enrolled"
     }
   }
 }

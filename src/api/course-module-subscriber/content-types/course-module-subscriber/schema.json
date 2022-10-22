@@ -12,9 +12,6 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "email": {
-      "type": "email"
-    },
     "module_ready": {
       "type": "boolean"
     },
@@ -22,7 +19,7 @@
       "type": "relation",
       "relation": "oneToOne",
       "target": "api::profile.profile",
-      "inversedBy": "module_enrolled"
+      "inversedBy": "course_module_subscriber"
     },
     "module_progress": {
       "type": "relation",
@@ -33,7 +30,8 @@
     "module_enrolled": {
       "type": "relation",
       "relation": "oneToOne",
-      "target": "api::module-course.module-course"
+      "target": "api::module-course.module-course",
+      "inversedBy": "course_module_id"
     }
   }
 }

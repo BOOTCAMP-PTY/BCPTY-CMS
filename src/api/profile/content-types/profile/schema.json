@@ -28,7 +28,12 @@
       "type": "media",
       "multiple": false,
       "required": false,
-      "allowedTypes": ["images", "files", "videos", "audios"],
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
       "pluginOptions": {
         "i18n": {
           "localized": false
@@ -57,7 +62,7 @@
       "target": "plugin::users-permissions.user",
       "inversedBy": "profile"
     },
-    "module_enrolled": {
+    "course_module_subscriber": {
       "type": "relation",
       "relation": "oneToOne",
       "target": "api::course-module-subscriber.course-module-subscriber",
