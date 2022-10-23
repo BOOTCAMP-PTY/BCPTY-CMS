@@ -30,8 +30,13 @@
     "module_enrolled": {
       "type": "relation",
       "relation": "oneToOne",
-      "target": "api::module-course.module-course",
-      "inversedBy": "course_module_id"
+      "target": "api::module-course.module-course"
+    },
+    "sub_module_progress_id": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::sub-module-progress.sub-module-progress",
+      "mappedBy": "big_module_id"
     }
   }
 }

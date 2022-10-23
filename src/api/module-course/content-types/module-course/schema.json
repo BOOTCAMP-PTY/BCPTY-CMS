@@ -70,11 +70,8 @@
         "años"
       ]
     },
-    "course_module_id": {
-      "type": "relation",
-      "relation": "oneToOne",
-      "target": "api::course-module-subscriber.course-module-subscriber",
-      "mappedBy": "module_enrolled"
+    "qty_courses": {
+      "type": "integer"
     }
   }
 }

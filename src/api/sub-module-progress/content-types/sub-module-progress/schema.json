@@ -1,0 +1,37 @@
+{
+  "kind": "collectionType",
+  "collectionName": "sub_module_progresses",
+  "info": {
+    "singularName": "sub-module-progress",
+    "pluralName": "sub-module-progresses",
+    "displayName": "SubModuleProgress",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "profile_id": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::profile.profile"
+    },
+    "big_module_id": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::course-module-subscriber.course-module-subscriber",
+      "inversedBy": "sub_module_progress_id"
+    },
+    "course_id": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::course.course"
+    },
+    "ready": {
+      "type": "boolean",
+      "default": false,
+      "required": true
+    }
+  }
+}
