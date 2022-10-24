@@ -12,19 +12,13 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "firstname": {
-      "type": "string"
-    },
-    "lastname": {
-      "type": "string"
-    },
-    "email": {
-      "type": "email"
-    },
     "course_module_subscriber": {
       "type": "relation",
       "relation": "oneToOne",
       "target": "api::course-module-subscriber.course-module-subscriber"
+    },
+    "finished": {
+      "type": "boolean"
     }
   }
 }

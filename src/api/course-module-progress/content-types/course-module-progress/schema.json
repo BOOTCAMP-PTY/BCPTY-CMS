@@ -12,9 +12,6 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "name": {
-      "type": "string"
-    },
     "module_id": {
       "type": "relation",
       "relation": "oneToOne",
