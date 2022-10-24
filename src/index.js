@@ -1,5 +1,6 @@
 'use strict';
 const graphql = require('./graphql');
+const crypto = require('crypto');
 
 module.exports = {
   /**
@@ -12,13 +13,6 @@ module.exports = {
     graphql(strapi); // externalize all graphql related code to ./src/graphql.js
   },
 
-  /**
-   * An asynchronous bootstrap function that runs before
-   * your application gets started.
-   *
-   * This gives you an opportunity to set up your data model,
-   * run jobs, or perform some special logic.
-   */
   bootstrap({ strapi }) {
     strapi.db.lifecycles.subscribe({
       models: ['plugin::users-permissions.user'],
@@ -26,8 +20,8 @@ module.exports = {
       // your lifecycle hooks
       async beforeCreate(event) {
         const { params } = event;
-        const usernameCreator = params.data.email.split('@');
-        event.params.data.username = usernameCreator[0];
+        let username = crypto.randomBytes(20).toString('hex');
+        event.params.data.username = username;
       },
     });
   },
