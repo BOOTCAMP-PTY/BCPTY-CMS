@@ -1,0 +1,19 @@
+build
+node_modules
+.cache
+/config
+
+# Dependency directories
+node_modules/
+
+# Publish Directory
+build/
+
+# Root level folders/files
+/package.json
+
+# Ignore everything:
+/*
+
+# Except myapp:
+!/src

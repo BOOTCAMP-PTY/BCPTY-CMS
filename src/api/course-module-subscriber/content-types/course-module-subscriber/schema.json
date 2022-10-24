@@ -1,0 +1,42 @@
+{
+  "kind": "collectionType",
+  "collectionName": "course_module_subscribers",
+  "info": {
+    "singularName": "course-module-subscriber",
+    "pluralName": "course-module-subscribers",
+    "displayName": "CourseModuleSubscriber",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "module_ready": {
+      "type": "boolean"
+    },
+    "user_profile": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::profile.profile",
+      "inversedBy": "course_module_subscriber"
+    },
+    "module_progress": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::course-module-progress.course-module-progress",
+      "inversedBy": "module_id"
+    },
+    "module_enrolled": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::module-course.module-course"
+    },
+    "sub_module_progress_id": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::sub-module-progress.sub-module-progress",
+      "mappedBy": "big_module_id"
+    }
+  }
+}

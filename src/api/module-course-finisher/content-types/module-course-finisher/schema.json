@@ -1,0 +1,24 @@
+{
+  "kind": "collectionType",
+  "collectionName": "module_course_finishers",
+  "info": {
+    "singularName": "module-course-finisher",
+    "pluralName": "module-course-finishers",
+    "displayName": "ModuleCourseFinisher",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "course_module_subscriber": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::course-module-subscriber.course-module-subscriber"
+    },
+    "finished": {
+      "type": "boolean"
+    }
+  }
+}

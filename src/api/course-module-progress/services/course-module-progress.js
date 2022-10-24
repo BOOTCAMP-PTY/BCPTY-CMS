@@ -1,11 +1,11 @@
 'use strict';
 
 /**
- * module-course service.
+ * course-module-progress service.
  */
 
 const { createCoreService } = require('@strapi/strapi').factories;
 
 module.exports = createCoreService(
-  'api::module-course.module-course'
+  'api::course-module-progress.course-module-progress'
 );

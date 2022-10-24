@@ -1,5 +1,5 @@
-"use strict";
-const graphql = require("./graphql");
+'use strict';
+const graphql = require('./graphql');
 
 module.exports = {
   /**
@@ -21,12 +21,12 @@ module.exports = {
    */
   bootstrap({ strapi }) {
     strapi.db.lifecycles.subscribe({
-      models: ["plugin::users-permissions.user"],
+      models: ['plugin::users-permissions.user'],
 
       // your lifecycle hooks
       async beforeCreate(event) {
-        const { result, params, data } = event;
-        const usernameCreator = params.data.email.split("@");
+        const { params } = event;
+        const usernameCreator = params.data.email.split('@');
         event.params.data.username = usernameCreator[0];
       },
     });
