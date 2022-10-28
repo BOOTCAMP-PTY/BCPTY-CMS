@@ -6,4 +6,6 @@
 
 const { createCoreRouter } = require('@strapi/strapi').factories;
 
-module.exports = createCoreRouter('api::sub-module-progress.sub-module-progress');
+module.exports = createCoreRouter(
+  'api::sub-module-progress.sub-module-progress'
+);

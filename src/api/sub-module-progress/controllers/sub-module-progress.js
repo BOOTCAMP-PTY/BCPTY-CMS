@@ -6,4 +6,6 @@
 
 const { createCoreController } = require('@strapi/strapi').factories;
 
-module.exports = createCoreController('api::sub-module-progress.sub-module-progress');
+module.exports = createCoreController(
+  'api::sub-module-progress.sub-module-progress'
+);
