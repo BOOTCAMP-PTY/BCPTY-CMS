@@ -13,9 +13,34 @@ module.exports = {
    * This gives you an opportunity to extend code.
    */
   register({ strapi }) {
-    graphql(strapi); // externalize all graphql related code to ./src/graphql.js
+    const extensionService = strapi
+      .plugin('graphql')
+      .service('extension');
+    extensionService.use(({ nexus }) => ({
+      types: [
+        nexus.extendType({
+          type: 'UsersPermissionsMe',
+          definition(t) {
+            // here define fields you need
+            t.field('profile', {
+              type: 'String',
+              resolve: async (root, args) => {
+                const userData = await strapi.db
+                  .query('plugin::users-permissions.user')
+                  .findOne({
+                    select: [],
+                    where: { id: root.id },
+                    populate: { profile: args.userId },
+                  });
+                console.log(userData);
+                return userData.profile.id;
+              },
+            });
+          },
+        }),
+      ],
+    }));
   },
-
   bootstrap({ strapi }) {
     strapi.db.lifecycles.subscribe({
       models: ['plugin::users-permissions.user'],
