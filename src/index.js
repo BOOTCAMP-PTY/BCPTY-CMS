@@ -1,6 +1,9 @@
 'use strict';
 const graphql = require('./graphql');
 const crypto = require('crypto');
+const {
+  afterCreate,
+} = require('./api/profile/content-types/profile/lifecycles');
 
 module.exports = {
   /**
