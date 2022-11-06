@@ -24,8 +24,8 @@
     "subtitle": {
       "type": "string"
     },
-    "content": {
-      "type": "json"
+    "courseContent": {
+      "type": "richtext"
     }
   }
 }
